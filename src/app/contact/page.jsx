@@ -44,7 +44,7 @@ export default function ContactPage() {
         <div className="contact-info-grid">
           {[
             { icon: 'fa-phone', title: 'Phone', desc: 'Our support team is available Mon–Sat, 8am–8pm WAT', links: [{href:'tel:+2347047009128',text:'+234 704 700 9128 (Nigeria)'},{href:'tel:+447539071257',text:'+44 753 907 1257 (UK)'}] },
-            { icon: 'fa-envelope', title: 'Email', desc: "Send us an email and we'll respond within 24 hours on business days", links: [{href:'mailto:support@arlinks.com',text:'support@arlinks.com'},{href:'mailto:partnerships@arlinks.com',text:'partnerships@arlinks.com'}] },
+            { icon: 'fa-envelope', title: 'Email', desc: "Send us an email and we'll respond within 24 hours on business days", links: [{href:'mailto:support@arlinks.com',text:'support@arlinks.com'},{href:'mailto:investors@arlink28.com',text:'investors@arlink28.com'},{href:'mailto:partners@arlink28.com',text:'partners@arlink28.com'},{href:'mailto:careers@arlink28.com',text:'careers@arlink28.com'}] },
             { icon: 'fa-location-dot', title: 'Offices', desc: 'We operate from two locations', links: [{text:'7th Floor, Mulliner Towers, 39 Alfred Rewane Road, Ikoyi, Lagos 101233, Nigeria'},{text:'71–75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom'}] },
             { icon: 'fa-whatsapp', title: 'WhatsApp', desc: 'Chat with us directly on WhatsApp for quick responses', links: [{href:'https://wa.me/2347047009128',text:'+234 704 700 9128'}] },
           ].map((c, i) => (
