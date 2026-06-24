@@ -164,12 +164,10 @@ export default function ContactPage() {
               <h3><i className="fa-solid fa-share-nodes" style={{color:'var(--primary-red)',marginRight:'10px'}}></i>Follow ARLink28</h3>
               <div className="contact-socials">
                 {[
-                  { icon: 'fa-brands fa-instagram', name: 'Instagram' },
-                  { icon: 'fa-brands fa-twitter', name: 'Twitter / X' },
-                  { icon: 'fa-brands fa-linkedin', name: 'LinkedIn' },
-                  { icon: 'fa-brands fa-facebook', name: 'Facebook' },
+                  { icon: 'fa-brands fa-instagram', name: 'Instagram', href: 'https://www.instagram.com/fly_arlink28?igsh=dnpyYTkzcXZrc3J0' },
+                  { icon: 'fa-brands fa-tiktok', name: 'TikTok', href: 'https://www.tiktok.com/@fly_arlink28?_r=1&_t=ZS-97TMxBPfuAU' },
                 ].map((s, i) => (
-                  <a key={i} href="#" className="contact-social-btn"><i className={s.icon}></i><span>{s.name}</span></a>
+                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="contact-social-btn"><i className={s.icon}></i><span>{s.name}</span></a>
                 ))}
               </div>
             </div>

@@ -75,15 +75,34 @@
 
 .partners-section { padding: 80px 8%; background-color: var(--bg-primary); text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
 .partners-title { font-size: 16px; font-weight: 600; color: var(--text-muted); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
-.partners-grid-row { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; }
-.partner-item {
-  display: flex; align-items: center; justify-content: center;
-  padding: 16px 24px; border-radius: 16px;
+
+.partners-card {
   background: var(--glass-bg); border: 1px solid var(--glass-border);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  border-radius: 24px; padding: 32px 0; overflow: hidden;
+  max-width: 900px; margin: 0 auto; position: relative;
 }
-.partner-item:hover { border-color: rgba(200,30,30,0.3); box-shadow: 0 8px 24px rgba(0,0,0,0.3); transform: translateY(-4px); }
-.partner-logo { height: 40px; width: auto; object-fit: contain; }
+/* fade edges */
+.partners-card::before, .partners-card::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+  pointer-events: none;
+}
+.partners-card::before { left: 0; background: linear-gradient(to right, var(--bg-secondary, #0a0f1a), transparent); }
+.partners-card::after { right: 0; background: linear-gradient(to left, var(--bg-secondary, #0a0f1a), transparent); }
+
+.partners-marquee {
+  display: flex; gap: 60px; align-items: center;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+}
+.partners-marquee:hover { animation-play-state: paused; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.partner-logo { height: 36px; width: auto; object-fit: contain; opacity: 0.75; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0; }
+.partner-logo:hover { opacity: 1; transform: scale(1.08); }
 
 @media (max-width: 992px) {
     .about-hero { padding: 160px 5% 100px 5%; min-height: auto; }

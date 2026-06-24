@@ -11,11 +11,8 @@ export default function Footer() {
           </Link>
           <p>Connecting you to the world with affordable, premium flights. Fly safely, travel comfortably.</p>
           <div className="social-links">
-            <a href="#" className="social-icon" aria-label="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
-            <a href="#" className="social-icon" aria-label="Twitter"><i className="fa-brands fa-twitter"></i></a>
-            <a href="#" className="social-icon" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
-            <a href="#" className="social-icon" aria-label="Linkedin"><i className="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" className="social-icon" aria-label="Youtube"><i className="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/fly_arlink28?igsh=dnpyYTkzcXZrc3J0" className="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@fly_arlink28?_r=1&_t=ZS-97TMxBPfuAU" className="social-icon" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-tiktok"></i></a>
           </div>
         </div>
 
@@ -65,16 +62,24 @@ export default function Footer() {
           <h5>Contact Us</h5>
           <ul className="contact-info">
             <li>
-              <i className="fa-solid fa-phone"></i>
-              <span>+234 800 123 4567</span>
-            </li>
-            <li>
-              <i className="fa-solid fa-envelope"></i>
-              <span>support@arlinks.com</span>
+              <i className="fa-solid fa-location-dot"></i>
+              <span><strong>Nigeria</strong><br/>7th Floor, Mulliner Towers, 39 Alfred Rewane Road, Ikoyi, Lagos 101233, Nigeria</span>
             </li>
             <li>
               <i className="fa-solid fa-location-dot"></i>
-              <span>Airport Road, Ikeja, Lagos, Nigeria</span>
+              <span><strong>UK</strong><br/>71–75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom</span>
+            </li>
+            <li>
+              <i className="fa-solid fa-phone"></i>
+              <a href="tel:+2347047009128">+234 704 700 9128</a>
+            </li>
+            <li>
+              <i className="fa-solid fa-phone"></i>
+              <a href="tel:+447539071257">+44 753 907 1257</a>
+            </li>
+            <li>
+              <i className="fa-brands fa-whatsapp"></i>
+              <a href="https://wa.me/2347047009128">+234 704 700 9128</a>
             </li>
           </ul>
         </div>

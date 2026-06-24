@@ -184,7 +184,7 @@ export default function HomePage() {
             <h2>Popular Destination</h2>
             <p>Connect immediately to major business centers and leisure gateways. Here are our top-rated flight routes.</p>
           </div>
-          <Link href="/travel" className="btn btn-secondary reveal">View All Destinations</Link>
+          <Link href="/destinations" className="btn btn-secondary reveal">View All Destinations</Link>
         </div>
         <div className="destinations-grid">
           {[

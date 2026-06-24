@@ -8,16 +8,16 @@ const flightPartners = [
   {
     name: 'Travelstart',
     logo: '/images/travelstart.png',
-    desc: 'Africa\'s leading online travel agency. Compare hundreds of airlines and book the cheapest flights across Africa and beyond.',
+    desc: "Africa's leading online travel agency. Compare hundreds of airlines and book the cheapest flights across Africa and beyond.",
     tags: ['Domestic', 'International', 'Best Price Guarantee', 'Instant Confirmation'],
-    getUrl: (p) => `https://travelstart.com.ng/`,
+    getUrl: (p) => `https://www.travelstart.com.ng/lp/cheap-flights/search?origin=${p.from}&destination=${p.to}&departureDate=${p.date}&cabin=${p.seat}`,
   },
   {
-    name: 'Aerolink',
-    logo: '/images/aerolink.jpg',
-    desc: 'Pan-African aviation partner connecting major hubs across West, East, and Southern Africa with competitive fares.',
-    tags: ['Africa Routes', 'Group Bookings', 'Charter Flights', 'Corporate Travel'],
-    getUrl: () => 'https://aerolinkworld.com/',
+    name: 'Trip.com',
+    logo: '/images/trip.png',
+    desc: 'Global travel platform with millions of flights worldwide. Great deals on one-way, return and multi-city routes.',
+    tags: ['Global Routes', 'Multi-city', 'Price Alerts', 'Flexible Dates'],
+    getUrl: (p) => `https://www.trip.com/flights/search?dcity=${p.from}&acity=${p.to}&date=${p.date}&cabin=${p.seat}`,
   },
 ];
 
@@ -33,13 +33,11 @@ function FlightBookContent() {
       <Link href="/" className="book-back-link">
         <i className="fa-solid fa-arrow-left"></i> Back to Search
       </Link>
-
       <div className="book-header">
         <span className="section-tag">Flight Booking</span>
         <h1>Choose Your <span className="highlight-red">Flight Partner</span></h1>
         <p>Select a trusted partner below to complete your booking. You'll be taken to their site with your search details pre-filled where possible.</p>
       </div>
-
       {(from || to || date) && (
         <div className="book-search-summary">
           {from && <div className="book-search-tag"><i className="fa-solid fa-plane-departure"></i> From: <span>{from}</span></div>}
@@ -48,7 +46,6 @@ function FlightBookContent() {
           {seat && <div className="book-search-tag"><i className="fa-solid fa-chair"></i> Class: <span>{seat}</span></div>}
         </div>
       )}
-
       <div className="partners-grid">
         {flightPartners.map((p, i) => (
           <div key={i} className="partner-card">

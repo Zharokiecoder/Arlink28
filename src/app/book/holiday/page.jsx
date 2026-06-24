@@ -6,18 +6,18 @@ import { Suspense } from 'react';
 
 const holidayPartners = [
   {
-    name: 'Viator',
-    logo: '/images/viator.jpg',
-    desc: 'The world\'s leading experiences marketplace. Discover tours, activities, day trips and holiday packages across Africa and worldwide.',
-    tags: ['Tours & Activities', 'Day Trips', 'Holiday Packages', 'Verified Reviews'],
-    getUrl: (p) => `https://www.viator.com/search/${p.to || 'Africa'}`,
+    name: 'GetYourGuide',
+    logo: '/images/get your guide.png',
+    desc: "The world's largest tours and activities marketplace. Book skip-the-line tickets, day trips, and curated experiences across Africa and beyond.",
+    tags: ['Tours & Activities', 'Skip-the-line', 'Day Trips', 'Instant Confirmation'],
+    getUrl: (p) => `https://www.getyourguide.com/s/?q=${p.to || 'Africa'}`,
   },
   {
-    name: 'Travelstart Holidays',
-    logo: '/images/travelstart.png',
-    desc: 'All-inclusive holiday packages combining flights, hotels and transfers into one seamless booking at great value.',
-    tags: ['All-Inclusive', 'Flight + Hotel', 'Africa Packages', 'Group Discounts'],
-    getUrl: (p) => `https://www.travelstart.com.ng/lp/holiday-packages?destination=${p.to}&departureDate=${p.date}`,
+    name: 'Trip.com',
+    logo: '/images/trip.png',
+    desc: 'All-inclusive holiday packages combining flights, hotels and transfers. Great value bundles for solo travellers, couples and families.',
+    tags: ['Flight + Hotel', 'All-Inclusive', 'Group Packages', 'Flexible Dates'],
+    getUrl: (p) => `https://www.trip.com/holidays/?destination=${p.to}&date=${p.date}`,
   },
 ];
 
@@ -31,20 +31,17 @@ function HolidayBookContent() {
       <Link href="/" className="book-back-link">
         <i className="fa-solid fa-arrow-left"></i> Back to Search
       </Link>
-
       <div className="book-header">
-        <span className="section-tag">Holiday Packages</span>
+        <span className="section-tag">Tours & Holiday Packages</span>
         <h1>Choose Your <span className="highlight-red">Holiday Partner</span></h1>
         <p>Explore curated holiday packages and experiences with our trusted partners. Pick one to continue your booking.</p>
       </div>
-
       {(to || date) && (
         <div className="book-search-summary">
           {to && <div className="book-search-tag"><i className="fa-solid fa-umbrella-beach"></i> Destination: <span>{to}</span></div>}
           {date && <div className="book-search-tag"><i className="fa-solid fa-calendar"></i> Date: <span>{date}</span></div>}
         </div>
       )}
-
       <div className="partners-grid">
         {holidayPartners.map((p, i) => (
           <div key={i} className="partner-card">

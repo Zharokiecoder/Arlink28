@@ -123,20 +123,27 @@ export default function AboutPage() {
       </section>
 
       {/* Partners */}
-      <section className="partners-section">
+      <section className="partners-section reveal">
         <h3 className="partners-title">Meet our partners</h3>
-        <div className="partners-grid-row">
-          {[
-            { src: '/images/travelstart.png', label: 'Travelstart' },
-            { src: '/images/aerolink.jpg', label: 'Aerolink' },
-            { src: '/images/ivisa.jpg', label: 'iVisa' },
-            { src: '/images/vizaxpress.jpg', label: 'VizaXpress' },
-            { src: '/images/viator.jpg', label: 'Viator' },
-          ].map((p, i) => (
-            <div key={i} className="partner-item reveal">
-              <img src={p.src} alt={p.label} className="partner-logo" />
-            </div>
-          ))}
+        <div className="partners-card">
+          <div className="partners-marquee">
+            {[
+              { src: '/images/travelstart.png', label: 'Travelstart' },
+              { src: '/images/ivisa.jpg', label: 'iVisa' },
+              { src: '/images/viator.jpg', label: 'Viator' },
+              { src: '/images/trip.png', label: 'Trip.com' },
+              { src: '/images/sherpa.png', label: 'Sherpa' },
+              { src: '/images/get your guide.png', label: 'GetYourGuide' },
+              { src: '/images/travelstart.png', label: 'Travelstart' },
+              { src: '/images/ivisa.jpg', label: 'iVisa' },
+              { src: '/images/viator.jpg', label: 'Viator' },
+              { src: '/images/trip.png', label: 'Trip.com' },
+              { src: '/images/sherpa.png', label: 'Sherpa' },
+              { src: '/images/get your guide.png', label: 'GetYourGuide' },
+            ].map((p, i) => (
+              <img key={i} src={p.src} alt={p.label} className="partner-logo" />
+            ))}
+          </div>
         </div>
       </section>
 

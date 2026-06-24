@@ -29,12 +29,10 @@ export default function EngagementPage() {
             <h4><i className="fa-solid fa-signal" style={{color:'var(--primary-red)',marginRight:'8px'}}></i>Follow Our Journey</h4>
             <div className="engage-social-row">
               {[
-                { icon: 'fa-brands fa-instagram', name: 'Instagram', handle: '@arlink28' },
-                { icon: 'fa-brands fa-twitter', name: 'Twitter / X', handle: '@arlink28' },
-                { icon: 'fa-brands fa-linkedin', name: 'LinkedIn', handle: 'ARLink28 Aviation' },
-                { icon: 'fa-brands fa-facebook', name: 'Facebook', handle: 'ARLink28' },
+                { icon: 'fa-brands fa-instagram', name: 'Instagram', handle: '@fly_arlink28', href: 'https://www.instagram.com/fly_arlink28?igsh=dnpyYTkzcXZrc3J0' },
+                { icon: 'fa-brands fa-tiktok', name: 'TikTok', handle: '@fly_arlink28', href: 'https://www.tiktok.com/@fly_arlink28?_r=1&_t=ZS-97TMxBPfuAU' },
               ].map((s, i) => (
-                <a key={i} href="#" className="engage-social-card">
+                <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="engage-social-card">
                   <i className={s.icon}></i>
                   <span>{s.name}</span>
                   <small>{s.handle}</small>

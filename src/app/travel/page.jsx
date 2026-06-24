@@ -8,12 +8,12 @@ import CtaAdventure from '@/components/CtaAdventure';
 import NewsletterBar from '@/components/NewsletterBar';
 
 const allVendors = [
-  { category: 'flights', logo: 'AI', badge: 'badge-flights', badgeLabel: 'Flights', name: 'AeroLink Aviation', subtitle: 'Premium Domestic Routes', desc: 'Connecting major Nigerian cities with frequent, on-time departures. Business and economy options available on all routes.' },
-  { category: 'visas', logo: 'VX', badge: 'badge-visas', badgeLabel: 'Visas', name: 'VizaXpress', subtitle: 'Fast Visa Processing', desc: 'Expert visa application support for Schengen, UK, US, and African nations. 97% success rate with dedicated processing teams.' },
-  { category: 'experiences', logo: 'SE', badge: 'badge-experiences', badgeLabel: 'Experiences', name: 'Safari Elite', subtitle: 'African Experiences', desc: 'Curated wildlife safaris and cultural immersion tours across East and Southern Africa. Tailored for solo and group travelers.' },
-  { category: 'flights', logo: 'TW', badge: 'badge-flights', badgeLabel: 'Flights', name: 'TransWorld Air', subtitle: 'International Routes', desc: 'Affordable long-haul connections from Lagos and Abuja to London, Dubai, Paris, and New York with top-tier airlines.' },
-  { category: 'visas', logo: 'GL', badge: 'badge-visas', badgeLabel: 'Visas', name: 'GlobalPermit', subtitle: 'Work & Study Visas', desc: 'Specialized processing for student and work visas across Canada, UK, Australia, and Europe. Consultation included.' },
-  { category: 'experiences', logo: 'AC', badge: 'badge-experiences', badgeLabel: 'Experiences', name: 'Africa Circuits', subtitle: 'Heritage Tours', desc: 'Discover ancient trade routes, royal heritage, and cultural festivals across West, East, and North Africa.' },
+  { category: 'visas', logo: '/images/ivisa.jpg', badge: 'badge-visas', badgeLabel: 'Visas', name: 'iVisa', subtitle: 'Fast Visa Processing', desc: 'Quick and reliable online visa, passport, and travel document processing for destinations worldwide.' },
+  { category: 'experiences', logo: '/images/get your guide.png', badge: 'badge-experiences', badgeLabel: 'Experiences', name: 'GetYourGuide', subtitle: 'Tours & Activities', desc: 'Book unforgettable tours, attractions, and local experiences at your destination with instant confirmation.' },
+  { category: 'flights', logo: '/images/travelstart.png', badge: 'badge-flights', badgeLabel: 'Flights', name: 'Travelstart', subtitle: 'African Travel Marketplace', desc: 'Compare and book flights, hotels, and holiday packages across Africa and beyond at the best prices.' },
+  { category: 'experiences', logo: '/images/viator.jpg', badge: 'badge-experiences', badgeLabel: 'Experiences', name: 'Viator', subtitle: 'Tours, Tickets & Activities', desc: 'A TripAdvisor company offering thousands of bookable tours, excursions, and skip-the-line attraction tickets.' },
+  { category: 'experiences', logo: '/images/sherpa.png', badge: 'badge-experiences', badgeLabel: 'Experiences', name: 'Sherpa', subtitle: 'Travel Requirements Guide', desc: 'Real-time travel restriction and entry requirement information so you always know before you go.' },
+  { category: 'flights', logo: '/images/trip.com.png', badge: 'badge-flights', badgeLabel: 'Flights', name: 'Trip.com', subtitle: 'Flights, Hotels & More', desc: 'A global travel platform for booking flights, hotels, trains, and car rentals at competitive rates.' },
 ];
 
 export default function TravelPage() {
@@ -132,7 +132,9 @@ export default function TravelPage() {
           {filtered.map((v, i) => (
             <div key={i} className="vendor-card glass-panel reveal">
               <div className="vendor-card-header">
-                <div className="vendor-logo-placeholder">{v.logo}</div>
+                <div className="vendor-logo-placeholder">
+                  <Image src={v.logo} alt={`${v.name} logo`} width={90} height={44} style={{width:'100%',height:'100%',objectFit:'contain'}} />
+                </div>
                 <span className={`vendor-badge ${v.badge}`}>{v.badgeLabel}</span>
               </div>
               <h3>{v.name}</h3>
