@@ -8,7 +8,7 @@ import NewsletterBar from '@/components/NewsletterBar';
 const services = [
   {
     id: 'flight-booking',
-    img: 'IMG_5235.png',
+    img: 'flightbooking.png',
     alt: 'Flight Booking',
     title: 'Flight Booking',
     subtitle: 'Domestic & International Flights',
@@ -18,7 +18,7 @@ const services = [
   },
   {
     id: 'hotel-reservations',
-    img: '488d546d69613897fbd91a3ec61d5c72.jpg',
+    img: 'hotelreservations.png',
     alt: 'Hotel Reservations',
     title: 'Hotel Reservations',
     subtitle: 'Curated Accommodation Worldwide',
@@ -28,7 +28,7 @@ const services = [
   },
   {
     id: 'travel-insurance',
-    img: 'IMG_5236.png',
+    img: 'travelinsurance.png',
     alt: 'Travel Insurance',
     title: 'Travel Insurance',
     subtitle: 'Comprehensive Travel Protection',
@@ -38,7 +38,7 @@ const services = [
   },
   {
     id: 'airport-transfers',
-    img: 'd4f2e3fa759091f84b4c8f98df2dc9d0.jpg',
+    img: 'airporttransfer.png',
     alt: 'Airport Transfers',
     title: 'Airport Transfers',
     subtitle: 'Seamless Ground Transportation',
@@ -48,7 +48,7 @@ const services = [
   },
   {
     id: 'holiday-packages',
-    img: '7839e8b4d562c15a8f62d6b174cba984.jpg',
+    img: 'holidaypackage.png',
     alt: 'Holiday Packages',
     title: 'Holiday Packages',
     subtitle: 'All-Inclusive Travel Experiences',
@@ -58,7 +58,7 @@ const services = [
   },
   {
     id: 'corporate-group-travel',
-    img: 'IMG_5235.png',
+    img: 'coorporateandgrouptravelsolutions.png',
     alt: 'Corporate & Group Travel',
     title: 'Corporate & Group Travel Solutions',
     subtitle: 'For Businesses, Schools, Organisations & Conferences',

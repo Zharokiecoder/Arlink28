@@ -19,10 +19,10 @@ export default function AboutPage() {
           </span>
           <h1 className="hero-h1-entrance">
             Connecting People<br />
-            <span className="highlight-red">connecting Destinations</span><br />
-            connecting Dreams
+            <span className="highlight-red">Connecting Destinations</span><br />
+            Connecting Dreams
           </h1>
-          <p className="hero-p-entrance">A platform built to simplify travel resources within the continent, across Africa with clarity, precision, and long-term commitment.</p>
+          <p className="hero-p-entrance">A Pan-African travel ecosystem making travel across the continent more accessible, seamless, and efficient — built on connectivity, collaboration, and long-term commitment.</p>
           <div className="about-hero-actions hero-btn-entrance">
             <Link href="#about" className="btn btn-primary">Discover Us</Link>
             <a href="#" className="btn btn-secondary"><i className="fa-solid fa-play"></i> Watch our story</a>
@@ -39,10 +39,12 @@ export default function AboutPage() {
               <span className="about-tag">Who we are</span>
               <span className="about-tag-line"></span>
             </div>
-            <h2>A premium <span className="highlight-red">African aviation brand</span> in development.</h2>
-            <p>ARLink28 is being structured to deliver direct, efficient routes between key African cities, addressing one of the continent's most persistent challenges in air travel.</p>
-            <p>The foundation is built on a strategic decision to establish our operational base in Ethiopia — at the crossroads of Africa, Europe, and the Middle East. This is not simply a location, but a deliberate investment into stability, efficiency, and long-term relevance.</p>
-            <p>ARLink28 is also being developed with a clear commitment to sustainable aviation — aligning with global Net Zero ambitions through fuel-efficient aircraft, sustainable aviation fuels, and operational strategies that reduce environmental impact over time.</p>
+            <h2>A <span className="highlight-red">Pan-African travel ecosystem</span> in development.</h2>
+            <p>ARLink28 is building a comprehensive travel platform designed to simplify every stage of the travel journey — bringing together flight reservations, hotel bookings, holiday packages, visa support, accommodation, transportation, and future aviation operations under one ecosystem.</p>
+            <p>Africa is home to more than 1.4 billion people and some of the world's fastest-growing economies, yet travel between many African countries remains unnecessarily difficult. ARLink28 was established to address this challenge by connecting Africa more efficiently and supporting greater mobility for business, tourism, education, investment, and cultural exchange.</p>
+            <p>Through strategic partnerships with trusted travel agencies, visa specialists, hotels, destination providers, and technology partners across Africa, we aim to deliver an integrated travel experience from departure to arrival — and, as our ecosystem expands, artificial intelligence, data analytics, and cloud-based systems will power personalised recommendations and faster support.</p>
+            <p>Our long-term vision extends into aviation. ARLink28 aspires to establish a regional airline based in Addis Ababa, Ethiopia — one of Africa's leading aviation gateways — to strengthen connectivity across East, West, Central, North, and Southern Africa.</p>
+            <p>Whether an entrepreneur is attending a business conference in Kigali, a family is planning a holiday in Zanzibar, or a student is travelling to Accra for academic opportunities, ARLink28 provides a single platform where travel arrangements can be managed confidently and efficiently — from flights and hotels to airport transfers, travel insurance, and curated tour experiences.</p>
             <div className="about-actions">
               <Link href="/contact" className="btn btn-about-primary">Get in touch</Link>
               <Link href="/services" className="btn btn-about-secondary">Our services</Link>
@@ -56,9 +58,9 @@ export default function AboutPage() {
         {/* Values Grid */}
         <div className="about-values-grid">
           {[
-            { icon: 'fa-bullseye', title: 'Mission', text: 'To connect travelers to the world through affordable flight exceptional service and seamless booking experiences' },
-            { icon: 'fa-eye', title: 'Vision', text: 'To become Africa most trusted and preferred flight booking platform, connecting millions of journeys globally.' },
-            { icon: 'fa-handshake', title: 'Promises', text: 'We are committed to offering competitive fares, secure booking and dedicated support every step of the way.' },
+            { icon: 'fa-bullseye', title: 'Mission', text: 'To make travel within Africa more accessible, seamless, and efficient — connecting people, destinations, and opportunities through technology, partnerships, and exceptional service.' },
+            { icon: 'fa-eye', title: 'Vision', text: 'To become one of Africa\'s leading travel brands, building an integrated Pan-African travel ecosystem that strengthens regional mobility and connectivity.' },
+            { icon: 'fa-handshake', title: 'Promises', text: 'We are committed to sustainable, responsible growth — supporting local employment, community engagement, and environmentally conscious travel practices.' },
           ].map((v, i) => (
             <div key={i} className="value-card reveal">
               <div className="value-icon-wrapper"><i className={`fa-solid ${v.icon}`}></i></div>
@@ -70,7 +72,7 @@ export default function AboutPage() {
             <div className="value-info">
               <h4>Core Value</h4>
               <ul className="value-list">
-                {['Integrity','Customer Focus','Reliability','Innovation','Excellence'].map(v => <li key={v}>{v}</li>)}
+                {['Integrity','Connectivity','Collaboration','Innovation','Sustainability'].map(v => <li key={v}>{v}</li>)}
               </ul>
             </div>
           </div>
@@ -79,8 +81,8 @@ export default function AboutPage() {
         {/* Trust & Stats Ribbon */}
         <div className="about-trust-container reveal">
           <div className="trust-header">
-            <h3>We Build on <span className="highlight-red">Trust</span>. Driven by Passion.</h3>
-            <p>Our values and technology, helping other partners to build security. We wrap ourselves to build the best customer experience.</p>
+            <h3>Built on <span className="highlight-red">Trust</span>. Driven by Connectivity.</h3>
+            <p>Strong partnerships with airlines, airports, hotels, governments, and technology companies enable us to expand our services while creating long-term value for customers and partners alike.</p>
           </div>
           <div className="about-stats-ribbon">
             {[
@@ -99,6 +101,22 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+
+        {/* Tourism, Sustainability, Partnerships & Aviation Strategy */}
+        <div className="about-values-grid">
+          {[
+            { icon: 'fa-mountain-sun', title: 'Tourism', text: "We believe tourism is a catalyst for economic development, job creation, cultural exchange, and investment — collaborating with tourism boards, hospitality providers, and destination management organisations to showcase Africa's richness and diversity." },
+            { icon: 'fa-leaf', title: 'Sustainability', text: 'We are committed to promoting environmentally conscious travel practices, supporting local employment, engaging with communities, and exploring sustainable aviation practices that reduce the environmental impact of travel.' },
+            { icon: 'fa-handshake-angle', title: 'Partnerships', text: 'We build relationships with airlines, airports, hotels, governments, financial institutions, educational institutions, technology companies, and regional stakeholders who share our commitment to strengthening Africa\'s connectivity.' },
+            { icon: 'fa-chart-line', title: 'Aviation Strategy', text: 'Rather than pursuing rapid expansion, we are developing gradually through regional operations — building governance, regulatory compliance, financial discipline, and operational excellence before entering full airline operations.' },
+          ].map((v, i) => (
+            <div key={i} className="value-card reveal">
+              <div className="value-icon-wrapper"><i className={`fa-solid ${v.icon}`}></i></div>
+              <div className="value-info"><h4>{v.title}</h4><p>{v.text}</p></div>
+            </div>
+          ))}
+        </div>
+
 
         {/* Founder */}
         <div className="about-founder-container">
@@ -119,6 +137,14 @@ export default function AboutPage() {
             <p>During my years in the UK, I gained valuable experience working in corporate travel, understanding the customer service and operations side of the business. This background gave me a clear perspective on what travelers really need.</p>
             <p>ARLink28 is designed to address those needs - providing safe, reliable, and affordable travel solutions for anyone flying within Africa or connecting globally.</p>
           </div>
+        </div>
+      </section>
+
+      {/* Closing Statement */}
+      <section className="about-section" style={{paddingTop: 0}}>
+        <div className="trust-header reveal" style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
+          <h3>Travel has the power to <span className="highlight-red">unite people</span>.</h3>
+          <p>At ARLink28, we believe travel unlocks economic opportunities, fosters innovation, and strengthens relationships across borders. Our commitment is to make Africa more connected, more accessible, and more discoverable through an ecosystem built on professionalism, integrity, innovation, and service excellence.</p>
         </div>
       </section>
 

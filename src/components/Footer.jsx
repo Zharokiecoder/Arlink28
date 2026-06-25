@@ -53,8 +53,12 @@ export default function Footer() {
           <ul>
             <li><Link href="/contact">Contact Us</Link></li>
             <li><Link href="/contact#faq">Help &amp; FAQs</Link></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><Link href="/terms-of-service">Terms of Service</Link></li>
+            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link href="/refund-policy">Refund &amp; Cancellation Policy</Link></li>
+            <li><Link href="/affiliate-disclosure">Affiliate Disclosure</Link></li>
+            <li><Link href="/cookie-policy">Cookie Policy</Link></li>
+            <li><Link href="/disclaimer">Disclaimer</Link></li>
           </ul>
         </div>
 
