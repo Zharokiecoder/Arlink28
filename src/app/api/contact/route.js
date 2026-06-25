@@ -1,7 +1,5 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Route enquiry types to the right inbox
 const ENQUIRY_INBOX = {
   general: process.env.CONTACT_EMAIL_TO || 'support@arlinks.com',
@@ -12,6 +10,8 @@ const ENQUIRY_INBOX = {
 };
 
 export async function POST(request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   try {
     const body = await request.json();
     const { first_name, last_name, email, phone, subject, message, enquiry_type } = body;
@@ -27,7 +27,7 @@ export async function POST(request) {
     const toAddress = ENQUIRY_INBOX[enquiry_type] || ENQUIRY_INBOX.general;
 
     await resend.emails.send({
-      from: 'ARLinks Website <noreply@arlink28.com>', // must be a verified domain in Resend
+      from: 'ARLinks Website <noreply@arlink28.com>',
       to: toAddress,
       replyTo: email,
       subject: `[${(enquiry_type || 'general').toUpperCase()}] ${subject}`,

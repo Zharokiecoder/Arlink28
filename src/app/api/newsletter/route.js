@@ -1,8 +1,8 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   try {
     const { email } = await request.json();
 
@@ -15,8 +15,6 @@ export async function POST(request) {
       return Response.json({ error: 'Newsletter is not configured yet.' }, { status: 500 });
     }
 
-    // Adds the email to a Resend Audience — your subscriber list.
-    // Create an Audience in the Resend dashboard and put its ID in .env as RESEND_AUDIENCE_ID
     await resend.contacts.create({
       email,
       audienceId: process.env.RESEND_AUDIENCE_ID,
