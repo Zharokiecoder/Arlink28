@@ -14,14 +14,23 @@ export default function HomePage() {
 
   function handleBookingSearch(e) {
     e.preventDefault();
-    const form = e.target.closest('form') || e.currentTarget;
-    const from = form.querySelector('#from-input')?.value || '';
-    const to = form.querySelector('#to-input')?.value || '';
-    const date = form.querySelector('#date-input')?.value || '';
-    const seat = form.querySelector('#seat-input')?.value || 'economy';
-    const params = new URLSearchParams({ from, to, date, seat }).toString();
+    const form = e.currentTarget;
+    const getData = (id) => form.querySelector(`#${id}`)?.value || '';
+
+    let params = {};
     const routes = { flight: 'flight', hotel: 'hotel', car: 'holiday', taxi: 'visa' };
-    router.push(`/book/${routes[activeTab]}?${params}`);
+
+    if (activeTab === 'flight') {
+      params = { from: getData('from-input'), to: getData('to-input'), time: getData('time-input'), seat: getData('seat-input') };
+    } else if (activeTab === 'hotel') {
+      params = { city: getData('hotel-city'), checkin: getData('hotel-checkin'), checkout: getData('hotel-checkout'), guests: getData('hotel-guests') };
+    } else if (activeTab === 'car') {
+      params = { destination: getData('pkg-destination'), date: getData('pkg-date'), duration: getData('pkg-duration'), type: getData('pkg-type') };
+    } else if (activeTab === 'taxi') {
+      params = { nationality: getData('visa-nationality'), country: getData('visa-country'), date: getData('visa-date'), type: getData('visa-type') };
+    }
+
+    router.push(`/book/${routes[activeTab]}?${new URLSearchParams(params).toString()}`);
   }
 
   return (
@@ -54,76 +63,235 @@ export default function HomePage() {
               </button>
             ))}
           </div>
-          <form className="booking-form" onSubmit={handleBookingSearch}>
-            <div className="input-group">
-              <label htmlFor="from-input">From</label>
-              <div style={{position:'relative'}}>
-                <select id="from-input" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
-                  <option value="">Select departure</option>
-                  <option value="LOS">Lagos (LOS)</option>
-                  <option value="ABV">Abuja (ABV)</option>
-                  <option value="PHC">Port Harcourt (PHC)</option>
-                  <option value="KAN">Kano (KAN)</option>
-                  <option value="LHR">London (LHR)</option>
-                  <option value="DXB">Dubai (DXB)</option>
-                </select>
-                <i className="fa-solid fa-plane-departure" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+          {/* ── Flight Form ── */}
+          {activeTab === 'flight' && (
+            <>
+              <form className="booking-form" onSubmit={handleBookingSearch}>
+                <div className="input-group">
+                  <label htmlFor="from-input">From</label>
+                  <div style={{position:'relative'}}>
+                    <select id="from-input" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
+                      <option value="">Select departure</option>
+                      <option value="LOS">Lagos (LOS)</option>
+                      <option value="ABV">Abuja (ABV)</option>
+                      <option value="PHC">Port Harcourt (PHC)</option>
+                      <option value="KAN">Kano (KAN)</option>
+                      <option value="LHR">London (LHR)</option>
+                      <option value="DXB">Dubai (DXB)</option>
+                    </select>
+                    <i className="fa-solid fa-plane-departure" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+                  </div>
+                </div>
+                <div className="input-group">
+                  <label htmlFor="to-input">To</label>
+                  <div style={{position:'relative'}}>
+                    <select id="to-input" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
+                      <option value="">Select destination</option>
+                      <option value="LOS">Lagos (LOS)</option>
+                      <option value="ABV">Abuja (ABV)</option>
+                      <option value="PHC">Port Harcourt (PHC)</option>
+                      <option value="KAN">Kano (KAN)</option>
+                      <option value="LHR">London (LHR)</option>
+                      <option value="DXB">Dubai (DXB)</option>
+                      <option value="CDG">Paris (CDG)</option>
+                      <option value="JFK">New York (JFK)</option>
+                      <option value="NBO">Nairobi (NBO)</option>
+                      <option value="CPT">Cape Town (CPT)</option>
+                    </select>
+                    <i className="fa-solid fa-plane-arrival" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+                  </div>
+                </div>
+                <div className="input-group">
+                  <label htmlFor="time-input">Time</label>
+                  <input type="time" id="time-input" className="input-field" />
+                </div>
+                <div className="input-group">
+                  <label htmlFor="seat-input">Seat Type</label>
+                  <div style={{position:'relative'}}>
+                    <select id="seat-input" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
+                      <option value="economy">Economy</option>
+                      <option value="premium">Premium Economy</option>
+                      <option value="business">Business Class</option>
+                      <option value="first">First Class</option>
+                    </select>
+                    <i className="fa-solid fa-chair" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+                  </div>
+                </div>
+                <button type="submit" className="btn btn-primary" style={{height:'46px',marginBottom:'2px'}}>
+                  Search Flights <i className="fa-solid fa-arrow-right" style={{marginLeft:'8px'}}></i>
+                </button>
+              </form>
+              <div className="booking-options">
+                <label className="option-checkbox"><input type="radio" name="flight-type" defaultChecked /><span className="custom-checkbox"></span>One-Way Flight</label>
+                <label className="option-checkbox"><input type="radio" name="flight-type" /><span className="custom-checkbox"></span>Round Trip</label>
+                <label className="option-checkbox"><input type="radio" name="flight-type" /><span className="custom-checkbox"></span>Multi-City</label>
+                <label className="option-checkbox"><input type="checkbox" name="flexible-dates" /><span className="custom-checkbox"></span>Flexible Dates</label>
               </div>
-            </div>
-            <div className="input-group">
-              <label htmlFor="to-input">To</label>
-              <div style={{position:'relative'}}>
-                <select id="to-input" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
-                  <option value="">Select destination</option>
-                  <option value="LOS">Lagos (LOS)</option>
-                  <option value="ABV">Abuja (ABV)</option>
-                  <option value="PHC">Port Harcourt (PHC)</option>
-                  <option value="KAN">Kano (KAN)</option>
-                  <option value="LHR">London (LHR)</option>
-                  <option value="DXB">Dubai (DXB)</option>
-                  <option value="CDG">Paris (CDG)</option>
-                  <option value="JFK">New York (JFK)</option>
-                  <option value="NBO">Nairobi (NBO)</option>
-                  <option value="CPT">Cape Town (CPT)</option>
-                </select>
-                <i className="fa-solid fa-plane-arrival" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+            </>
+          )}
+
+          {/* ── Hotel Form ── */}
+          {activeTab === 'hotel' && (
+            <form className="booking-form" onSubmit={handleBookingSearch}>
+              <div className="input-group">
+                <label htmlFor="hotel-city">City / Destination</label>
+                <div style={{position:'relative'}}>
+                  <select id="hotel-city" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
+                    <option value="">Select city</option>
+                    <option value="Lagos">Lagos, Nigeria</option>
+                    <option value="Abuja">Abuja, Nigeria</option>
+                    <option value="Port Harcourt">Port Harcourt, Nigeria</option>
+                    <option value="Kano">Kano, Nigeria</option>
+                    <option value="London">London, UK</option>
+                    <option value="Dubai">Dubai, UAE</option>
+                    <option value="Paris">Paris, France</option>
+                    <option value="New York">New York, USA</option>
+                    <option value="Nairobi">Nairobi, Kenya</option>
+                    <option value="Cape Town">Cape Town, South Africa</option>
+                  </select>
+                  <i className="fa-solid fa-location-dot" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+                </div>
               </div>
-            </div>
-            <div className="input-group">
-              <label htmlFor="date-input">Date</label>
-              <div style={{position:'relative'}}>
-                <input type="date" id="date-input" className="input-field" />
+              <div className="input-group">
+                <label htmlFor="hotel-checkin">Check-in</label>
+                <input type="date" id="hotel-checkin" className="input-field" />
               </div>
-            </div>
-            <div className="input-group">
-              <label htmlFor="time-input">Time</label>
-              <div style={{position:'relative'}}>
-                <input type="time" id="time-input" className="input-field" />
+              <div className="input-group">
+                <label htmlFor="hotel-checkout">Check-out</label>
+                <input type="date" id="hotel-checkout" className="input-field" />
               </div>
-            </div>
-            <div className="input-group">
-              <label htmlFor="seat-input">Seat Type</label>
-              <div style={{position:'relative'}}>
-                <select id="seat-input" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
-                  <option value="economy">Economy</option>
-                  <option value="premium">Premium Economy</option>
-                  <option value="business">Business Class</option>
-                  <option value="first">First Class</option>
-                </select>
-                <i className="fa-solid fa-chair" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+              <div className="input-group">
+                <label htmlFor="hotel-guests">Guests</label>
+                <div style={{position:'relative'}}>
+                  <select id="hotel-guests" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5+">5+ Guests</option>
+                  </select>
+                  <i className="fa-solid fa-user-group" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+                </div>
               </div>
-            </div>
-            <button type="submit" className="btn btn-primary" style={{height:'46px',marginBottom:'2px'}}>
-              {activeTab === 'flight' ? 'Search Flights' : activeTab === 'hotel' ? 'Find Hotels' : activeTab === 'car' ? 'Find Packages' : 'Apply for Visa'}
-              <i className="fa-solid fa-arrow-right" style={{marginLeft:'8px'}}></i>
-            </button>
-          </form>
-          <div className="booking-options">
-            <label className="option-checkbox"><input type="radio" name="flight-type" defaultChecked /><span className="custom-checkbox"></span>One-Way Flight</label>
-            <label className="option-checkbox"><input type="radio" name="flight-type" /><span className="custom-checkbox"></span>Round Trip</label>
-            <label className="option-checkbox"><input type="radio" name="flight-type" /><span className="custom-checkbox"></span>Multi-City</label>
-            <label className="option-checkbox"><input type="checkbox" name="flexible-dates" /><span className="custom-checkbox"></span>Flexible Dates</label>
-          </div>
+              <button type="submit" className="btn btn-primary" style={{height:'46px',marginBottom:'2px'}}>
+                Find Hotels <i className="fa-solid fa-arrow-right" style={{marginLeft:'8px'}}></i>
+              </button>
+            </form>
+          )}
+
+          {/* ── Holiday Package Form ── */}
+          {activeTab === 'car' && (
+            <form className="booking-form" onSubmit={handleBookingSearch}>
+              <div className="input-group">
+                <label htmlFor="pkg-destination">Destination</label>
+                <div style={{position:'relative'}}>
+                  <select id="pkg-destination" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
+                    <option value="">Select destination</option>
+                    <option value="Dubai">Dubai, UAE</option>
+                    <option value="London">London, UK</option>
+                    <option value="Paris">Paris, France</option>
+                    <option value="Nairobi">Nairobi, Kenya</option>
+                    <option value="Cape Town">Cape Town, South Africa</option>
+                    <option value="New York">New York, USA</option>
+                    <option value="Kano">Kano, Nigeria</option>
+                    <option value="Abuja">Abuja, Nigeria</option>
+                  </select>
+                  <i className="fa-solid fa-umbrella-beach" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+                </div>
+              </div>
+              <div className="input-group">
+                <label htmlFor="pkg-date">Departure Date</label>
+                <input type="date" id="pkg-date" className="input-field" />
+              </div>
+              <div className="input-group">
+                <label htmlFor="pkg-duration">Duration</label>
+                <div style={{position:'relative'}}>
+                  <select id="pkg-duration" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
+                    <option value="3-5">3 – 5 Days</option>
+                    <option value="6-8">6 – 8 Days</option>
+                    <option value="9-14">9 – 14 Days</option>
+                    <option value="15+">15+ Days</option>
+                  </select>
+                  <i className="fa-solid fa-calendar-days" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+                </div>
+              </div>
+              <div className="input-group">
+                <label htmlFor="pkg-type">Package Type</label>
+                <div style={{position:'relative'}}>
+                  <select id="pkg-type" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
+                    <option value="standard">Standard</option>
+                    <option value="premium">Premium</option>
+                    <option value="luxury">Luxury</option>
+                    <option value="family">Family</option>
+                    <option value="honeymoon">Honeymoon</option>
+                  </select>
+                  <i className="fa-solid fa-star" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+                </div>
+              </div>
+              <button type="submit" className="btn btn-primary" style={{height:'46px',marginBottom:'2px'}}>
+                Find Packages <i className="fa-solid fa-arrow-right" style={{marginLeft:'8px'}}></i>
+              </button>
+            </form>
+          )}
+
+          {/* ── Visa Support Form ── */}
+          {activeTab === 'taxi' && (
+            <form className="booking-form" onSubmit={handleBookingSearch}>
+              <div className="input-group">
+                <label htmlFor="visa-nationality">Your Nationality</label>
+                <div style={{position:'relative'}}>
+                  <select id="visa-nationality" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
+                    <option value="">Select nationality</option>
+                    <option value="NG">Nigerian</option>
+                    <option value="GH">Ghanaian</option>
+                    <option value="KE">Kenyan</option>
+                    <option value="ZA">South African</option>
+                    <option value="GB">British</option>
+                    <option value="US">American</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <i className="fa-solid fa-flag" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+                </div>
+              </div>
+              <div className="input-group">
+                <label htmlFor="visa-country">Destination Country</label>
+                <div style={{position:'relative'}}>
+                  <select id="visa-country" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
+                    <option value="">Select country</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="UAE">United Arab Emirates</option>
+                    <option value="US">United States</option>
+                    <option value="FR">France</option>
+                    <option value="CA">Canada</option>
+                    <option value="DE">Germany</option>
+                    <option value="CN">China</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <i className="fa-solid fa-earth-africa" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+                </div>
+              </div>
+              <div className="input-group">
+                <label htmlFor="visa-date">Travel Date</label>
+                <input type="date" id="visa-date" className="input-field" />
+              </div>
+              <div className="input-group">
+                <label htmlFor="visa-type">Visa Type</label>
+                <div style={{position:'relative'}}>
+                  <select id="visa-type" className="input-field" style={{appearance:'none',WebkitAppearance:'none'}}>
+                    <option value="tourist">Tourist / Visit</option>
+                    <option value="business">Business</option>
+                    <option value="student">Student</option>
+                    <option value="transit">Transit</option>
+                    <option value="work">Work</option>
+                  </select>
+                  <i className="fa-solid fa-passport" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
+                </div>
+              </div>
+              <button type="submit" className="btn btn-primary" style={{height:'46px',marginBottom:'2px'}}>
+                Apply for Visa <i className="fa-solid fa-arrow-right" style={{marginLeft:'8px'}}></i>
+              </button>
+            </form>
+          )}
         </div>
 
         {/* Trust Badges */}
@@ -247,10 +415,10 @@ export default function HomePage() {
           </div>
           <div className="featured-travel-grid">
             {[
-              { img: 'IMG_5236.png', dur: '7 Days', title: 'Lagos to London', text: 'Direct flights with premium amenities. Business and economy class available daily.', price: '$499', from: 'From' },
-              { img: '11a45865c24a53fcd5b730276d1ea975.jpg', dur: '5 Days', title: 'Abuja City Break', text: 'Explore Nigeria\'s capital with guided tours, luxury hotels, and cultural experiences.', price: '$199', from: 'From' },
-              { img: '488d546d69613897fbd91a3ec61d5c72.jpg', dur: '10 Days', title: 'Dubai Experience', text: 'Luxury travel to the UAE. Shopping, desert safaris, and world-class hospitality.', price: '$799', from: 'From' },
-              { img: 'gini2.png', dur: '4 Days', title: 'Kano Cultural Tour', text: 'Discover ancient city walls, vibrant markets, and rich northern Nigerian heritage.', price: '$149', from: 'From' },
+              { img: 'Lagoslondon.jpeg', dur: '7 Days', title: 'Lagos to London', text: 'Direct flights with premium amenities. Business and economy class available daily.', price: '$499', from: 'From' },
+              { img: 'Abujacity.jpeg', dur: '5 Days', title: 'Abuja City Break', text: 'Explore Nigeria\'s capital with guided tours, luxury hotels, and cultural experiences.', price: '$199', from: 'From' },
+              { img: 'Dubaiexprience.jpeg', dur: '10 Days', title: 'Dubai Experience', text: 'Luxury travel to the UAE. Shopping, desert safaris, and world-class hospitality.', price: '$799', from: 'From' },
+              { img: 'Kanocurlture.jpeg', dur: '4 Days', title: 'Kano Cultural Tour', text: 'Discover ancient city walls, vibrant markets, and rich northern Nigerian heritage.', price: '$149', from: 'From' },
             ].map((t, i) => (
               <div key={i} className="featured-travel-card reveal">
                 <div className="featured-travel-img-wrapper">
