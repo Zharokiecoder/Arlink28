@@ -358,7 +358,7 @@ export default function HomePage() {
           {[
             { img: 'Abuja.jpeg', alt: 'Abuja', label: 'Flight to Abuja (ABV)' },
             { img: 'Lagos.jpeg', alt: 'Lagos', label: 'Flight to Lagos (LOS)' },
-            { img: 'Kenya.jpeg', alt: 'Port Harcourt', label: 'Flight to Port Harcourt (PHC)' },
+            { img: 'Porthacourt.PNG', alt: 'Port Harcourt', label: 'Flight to Port Harcourt (PHC)' },
             { img: 'Kano.jpeg', alt: 'Kano', label: 'Flight to Kano (KAN)' },
             { img: 'Lodon.jpeg', alt: 'London', label: 'Flight to London (LHR)' },
             { img: 'Paris.jpeg', alt: 'Paris', label: 'Flight to Paris (CDG)' },
