@@ -20,6 +20,7 @@ const services = [
     id: 'hotel-reservations',
     img: 'hotelreservations.png',
     alt: 'Hotel Reservations',
+    fit: 'contain',
     title: 'Hotel Reservations',
     subtitle: 'Curated Accommodation Worldwide',
     desc: 'From boutique hotels to five-star resorts, we handpick accommodations that match your budget and travel style. Book your hotel alongside your flight for maximum convenience and special bundled rates.',
@@ -58,8 +59,9 @@ const services = [
   },
   {
     id: 'corporate-group-travel',
-    img: 'coorporateandgrouptravelsolutions.png',
+    img: 'coorporateandgrouptravelsolution.png',
     alt: 'Corporate & Group Travel',
+    fit: 'contain',
     title: 'Corporate & Group Travel Solutions',
     subtitle: 'For Businesses, Schools, Organisations & Conferences',
     desc: 'We handle travel logistics for corporates, schools, NGOs, and conference delegations. From bulk flight bookings to coordinated transfers and accommodation, we make group travel effortless and cost-efficient.',
@@ -100,8 +102,8 @@ export default function ServicesPage() {
         <div className="services-block-container">
           {services.map((s, i) => (
             <div key={s.id} id={s.id} className={`service-block-row${s.reverse ? ' row-reverse' : ''} reveal`}>
-              <div className="service-block-img-box">
-                <img src={`/images/${s.img}`} alt={s.alt} className="service-block-img" />
+              <div className="service-block-img-box" style={s.fit === 'contain' ? { background: 'linear-gradient(135deg, #0b121c 0%, #141d2b 100%)' } : undefined}>
+                <img src={`/images/${s.img}`} alt={s.alt} className="service-block-img" style={s.fit ? { objectFit: s.fit } : undefined} />
               </div>
               <div className="service-block-text-box">
                 <h3>{s.title}</h3>
