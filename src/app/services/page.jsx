@@ -8,7 +8,7 @@ import NewsletterBar from '@/components/NewsletterBar';
 const services = [
   {
     id: 'flight-booking',
-    img: 'flightbooking.png',
+    img: 'flightbooking.PNG',
     alt: 'Flight Booking',
     title: 'Flight Booking',
     subtitle: 'Domestic & International Flights',
@@ -18,7 +18,7 @@ const services = [
   },
   {
     id: 'hotel-reservations',
-    img: 'hotelreservations.png',
+    img: 'hotelreservations.PNG',
     alt: 'Hotel Reservations',
     fit: 'contain',
     title: 'Hotel Reservations',
@@ -29,7 +29,7 @@ const services = [
   },
   {
     id: 'travel-insurance',
-    img: 'travelinsurance.png',
+    img: 'travelinsurance.PNG',
     alt: 'Travel Insurance',
     title: 'Travel Insurance',
     subtitle: 'Comprehensive Travel Protection',
@@ -39,7 +39,7 @@ const services = [
   },
   {
     id: 'airport-transfers',
-    img: 'airporttransfer.png',
+    img: 'airporttransfer.PNG',
     alt: 'Airport Transfers',
     title: 'Airport Transfers',
     subtitle: 'Seamless Ground Transportation',
@@ -49,7 +49,7 @@ const services = [
   },
   {
     id: 'holiday-packages',
-    img: 'holidaypackage.png',
+    img: 'holidaypackage.PNG',
     alt: 'Holiday Packages',
     title: 'Holiday Packages',
     subtitle: 'All-Inclusive Travel Experiences',
