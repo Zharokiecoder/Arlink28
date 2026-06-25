@@ -101,10 +101,7 @@ export default function HomePage() {
                     <i className="fa-solid fa-plane-arrival" style={{position:'absolute',right:'12px',top:'15px',color:'var(--text-muted)',pointerEvents:'none'}}></i>
                   </div>
                 </div>
-                <div className="input-group">
-                  <label htmlFor="time-input">Time</label>
-                  <input type="time" id="time-input" className="input-field" />
-                </div>
+                
                 <div className="input-group">
                   <label htmlFor="seat-input">Seat Type</label>
                   <div style={{position:'relative'}}>
