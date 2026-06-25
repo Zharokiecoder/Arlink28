@@ -8,6 +8,8 @@ import NewsletterBar from '@/components/NewsletterBar';
 export default function ContactPage() {
   const [activeEnquiry, setActiveEnquiry] = useState('general');
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
   useAnimations();
 
   function toggleFaq(e) {
@@ -15,9 +17,35 @@ export default function ContactPage() {
     item.classList.toggle('open');
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError('');
+
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+
+      if (!res.ok) {
+        setError(result.error || 'Something went wrong. Please try again.');
+        setSubmitting(false);
+        return;
+      }
+
+      setSubmitted(true);
+      form.reset();
+    } catch (err) {
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -114,10 +142,20 @@ export default function ContactPage() {
                 <input type="checkbox" id="form-consent" required />
                 <label htmlFor="form-consent">I agree to the <a href="#">privacy policy</a> and consent to being contacted regarding my enquiry.</label>
               </div>
-              <button type="submit" className="btn btn-primary contact-submit-btn">
-                <span>Send Message</span>
+              <button type="submit" className="btn btn-primary contact-submit-btn" disabled={submitting}>
+                <span>{submitting ? 'Sending...' : 'Send Message'}</span>
                 <i className="fa-solid fa-paper-plane"></i>
               </button>
+
+              {error && (
+                <div className="form-success-msg" style={{ borderColor: 'rgba(230,30,43,0.4)' }}>
+                  <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--primary-red)' }}></i>
+                  <div>
+                    <strong>Something went wrong</strong>
+                    <p>{error}</p>
+                  </div>
+                </div>
+              )}
 
               {submitted && (
                 <div className="form-success-msg">

@@ -188,17 +188,18 @@ export default function HomePage() {
         </div>
         <div className="destinations-grid">
           {[
-            { img: '0beb3e04fca00b01c6d5ee27858785f2.jpg', alt: 'Abuja', label: 'Flight to Abuja (ABV)' },
-            { img: '11a45865c24a53fcd5b730276d1ea975.jpg', alt: 'Lagos', label: 'Flight to Lagos (LOS)' },
+            { img: 'Abuja.jpeg', alt: 'Abuja', label: 'Flight to Abuja (ABV)' },
+            { img: 'Lagos.jpeg', alt: 'Lagos', label: 'Flight to Lagos (LOS)' },
             { img: 'IMG_5235.png', alt: 'Port Harcourt', label: 'Flight to Port Harcourt (PHC)' },
-            { img: 'gini2.png', alt: 'Kano', label: 'Flight to Kano (KAN)' },
-            { img: 'IMG_5236.png', alt: 'London', label: 'Flight to London (LHR)' },
-            { img: '7839e8b4d562c15a8f62d6b174cba984.jpg', alt: 'Paris', label: 'Flight to Paris (CDG)' },
-            { img: 'e7be194d434ef6e446ad64626b9a0276.jpg', alt: 'New York', label: 'Flight to New York (JFK)' },
-            { img: '488d546d69613897fbd91a3ec61d5c72.jpg', alt: 'Dubai', label: 'Flight to Dubai (DXB)' },
-            { img: 'd4f2e3fa759091f84b4c8f98df2dc9d0.jpg', alt: 'Nairobi', label: 'Flight to Nairobi (NBO)' },
-            { img: '026badc72f15f795f5246011b20dedb3.jpg', alt: 'Cape Town', label: 'Flight to Cape Town (CPT)' },
+            { img: 'Kano.jpeg', alt: 'Kano', label: 'Flight to Kano (KAN)' },
+            { img: 'Lodon.jpeg', alt: 'London', label: 'Flight to London (LHR)' },
+            { img: 'Paris.jpeg', alt: 'Paris', label: 'Flight to Paris (CDG)' },
+            { img: 'Newyork.jpeg', alt: 'New York', label: 'Flight to New York (JFK)' },
+            { img: 'Dubai.jpeg', alt: 'Dubai', label: 'Flight to Dubai (DXB)' },
+            { img: 'Kenya.jpeg', alt: 'Nairobi', label: 'Flight to Nairobi (NBO)' },
+            { img: 'CapeTown.jpeg', alt: 'Cape Town', label: 'Flight to Cape Town (CPT)' },
           ].map((d, i) => (
+
             <div key={i} className="destination-card reveal">
               <img src={`/images/${d.img}`} alt={d.alt} className="destination-img" />
               <div className="destination-overlay">
