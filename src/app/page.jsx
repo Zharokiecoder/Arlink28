@@ -190,7 +190,7 @@ export default function HomePage() {
           {[
             { img: 'Abuja.jpeg', alt: 'Abuja', label: 'Flight to Abuja (ABV)' },
             { img: 'Lagos.jpeg', alt: 'Lagos', label: 'Flight to Lagos (LOS)' },
-            { img: 'IMG_5235.png', alt: 'Port Harcourt', label: 'Flight to Port Harcourt (PHC)' },
+            { img: 'Kenya.jpeg', alt: 'Port Harcourt', label: 'Flight to Port Harcourt (PHC)' },
             { img: 'Kano.jpeg', alt: 'Kano', label: 'Flight to Kano (KAN)' },
             { img: 'Lodon.jpeg', alt: 'London', label: 'Flight to London (LHR)' },
             { img: 'Paris.jpeg', alt: 'Paris', label: 'Flight to Paris (CDG)' },
@@ -199,7 +199,6 @@ export default function HomePage() {
             { img: 'Kenya.jpeg', alt: 'Nairobi', label: 'Flight to Nairobi (NBO)' },
             { img: 'CapeTown.jpeg', alt: 'Cape Town', label: 'Flight to Cape Town (CPT)' },
           ].map((d, i) => (
-
             <div key={i} className="destination-card reveal">
               <img src={`/images/${d.img}`} alt={d.alt} className="destination-img" />
               <div className="destination-overlay">
